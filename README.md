@@ -1,24 +1,16 @@
-# README
+Course List >> Ruby on Rails >> Introduction to Rails >> [Project: Let's Get Building](http://www.theodinproject.com/courses/ruby-on-rails/lessons/let-s-get-building)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Project: Web Refresher
 
-Things you may want to cover:
+##Project: Ruby on Rails Tutorial
 
-* Ruby version
+* Do Chapter 3 of the Ruby on Rails Tutorial to get started building the application.
+* Do Chapter 4 of the tutorial to see how Ruby will be used in Rails.
 
-* System dependencies
+### Ruby on Rails Tutorial sample application
 
-* Configuration
+This is the sample application for [*Ruby on Rails Tutorial: Learn Web Develpment with Rails*](http://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com).
 
-* Database creation
+### License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All source code in the [Ruby on Rails Tutorial](http://railstutorial.org/) is available jointly under the MIT License and the Beerware License. See [LICENSE.md](LICENSE.md) for details.
