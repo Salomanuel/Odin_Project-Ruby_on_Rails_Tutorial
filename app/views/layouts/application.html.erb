@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title> <%= @title %> | Ruby on Rails Tutorial Sample App</title>
-</head>
-<body>
-	<h1> <%= @title %> </h1>
-	<%= yield %>
-</body>
+  <head>
+    <title> <%= @title %> | Ruby on Rails Tutorial Sample App</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+<head>
