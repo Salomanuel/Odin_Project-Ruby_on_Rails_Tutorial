@@ -3,19 +3,27 @@
   <head>
     <title> <%= full_title(@title) %></title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag     'application', media: 'all', 
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag  'application', 
+                                              'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
-    <h6>
-    	<%= link_to "<< Back home", root_url %> | 
-  		<%= link_to "help"				, static_pages_help_path %>  |
-  		<%= link_to "about"				, static_pages_about_path %> |
-  		<%= link_to "contact"			,	static_pages_contact_path %>
-		</h6>
+    <header class="navbar navbar-fiexed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "sample app", "#", id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   "#" %></li>
+            <li><%= link_to "Help",   "#" %></li>
+            <li><%= link_to "Log in", "#" %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
 
