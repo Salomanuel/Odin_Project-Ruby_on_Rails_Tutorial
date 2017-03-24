@@ -38,4 +38,21 @@ class UserTest < ActiveSupport::TestCase
 			assert@user.valid?, "#{mail.inspect} should be valid"
 		end
 	end
+    
+	test "not valid emails shalt not pass" do
+		invalid_addresses = ["user@example,com", "user_at_foo.org",
+												 "user.name@example.",
+												 "foo@bar_baz.com", "foo@bar+baz.com"]
+		invalid_addresses.each do |mail|
+			@user.email = mail
+			assert_not @user.valid?, "#{mail.inspect} should be invalid"
+		end
+	end
+
+	test "email addresses should be unique" do
+		duplicate_user = @user.dup
+		duplicate_user.email = @user.email.upcase
+		@user.save
+		assert_not duplicate_user.valid?
+	end
 end
