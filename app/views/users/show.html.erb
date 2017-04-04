@@ -1,0 +1,32 @@
+<head>
+<style>
+	table {	width:100%;	}
+ 	td,th { text-align: left;
+ 					padding: 6px; }
+</style>
+</head>
+
+<h1>Show's here</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>name</th>
+			<th>email</th>
+			<th>created at</th>
+			<th>updated at </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> <%= @user.name %> </td>
+			<td> <%= @user.email %> </td>
+			<td> <%= @user.created_at %> </td>
+			<td> <%= @user.updated_at %> </td>
+		</tr>
+	</tbody>
+</table>
+
+<p>by the way, it's <%= Time.now %>
+
+<p><%= link_to "<< back to user list", users_path %></p>
