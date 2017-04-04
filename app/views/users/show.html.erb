@@ -6,10 +6,17 @@
 </style>
 </head>
 
-<h1>Show for <%= @user.name %> is here</h1>
-<h2><%= gravatar_for @user %></h2>
-
-
+<% provide(:title, @user.name) %>
+<div class="row">
+	<aside class="col-md-4">
+		<section class="user_info">
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.name %>
+			</h1>
+		</section>
+	</aside>
+</div>
 
 <table>
 	<thead>
