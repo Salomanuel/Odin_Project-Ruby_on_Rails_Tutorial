@@ -7,4 +7,13 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	# debugger
   end
+
+  def create
+  	@user = User.new(params[:user])
+  	if @user.save
+  		#ok
+  	else
+  		render 'new'
+  	end
+  end
 end
