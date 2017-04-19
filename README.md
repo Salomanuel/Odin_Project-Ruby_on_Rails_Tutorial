@@ -35,8 +35,16 @@ Your Task
 * Do the Ruby on Rails Tutorial chapter 6, "Modeling Users".
 
 
+Course List >> Ruby on Rails >> Forms and Authentication >> [Projects: Forms](http://www.theodinproject.com/courses/ruby-on-rails/lessons/forms)
 
+# Projects: Forms  
 
+## Project 2: Ruby on Rails Tutorial
+
+This chapter will take what you now know about forms and make it part of a real application instead of just a learning exercise. You'll build out the user signup form for the Twitter-clone project and integrate it with the validations you created on the database in the previous chapter.
+Your Task
+
+* Do the Ruby on Rails Tutorial Chapter 7, "Sign-Up".
 
 
 ### Ruby on Rails Tutorial sample application
