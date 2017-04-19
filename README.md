@@ -10,7 +10,7 @@ In this project, you'll dive right into the tutorial by building the site's stat
 * Do Chapter 4 of the tutorial to see how Ruby will be used in Rails.
 
 
- 
+---
 Course List >> Ruby on Rails >> Routes, Views, Controllers and Assets >> [Project: Basic Routes, Views and Controllers](http://www.theodinproject.com/courses/ruby-on-rails/lessons/basic-routes-views-and-controllers)
 
 # Project: Basic Routes, Views and Controllers
@@ -23,6 +23,8 @@ Bootstrap will do a lot of the heavy lifting for you -- instead of having to fig
 
 * Do the Rails Tutorial Chapter 5, "Filling in the Layout"
 
+
+---
 Course List >> Ruby on Rails >> Databases and Active Record >> [Project: Building With Active Record](http://www.theodinproject.com/courses/ruby-on-rails/lessons/building-with-active-record)
 
 # Projects: Active Record Basics
@@ -35,6 +37,7 @@ Your Task
 * Do the Ruby on Rails Tutorial chapter 6, "Modeling Users".
 
 
+---
 Course List >> Ruby on Rails >> Forms and Authentication >> [Projects: Forms](http://www.theodinproject.com/courses/ruby-on-rails/lessons/forms)
 
 # Projects: Forms  
@@ -46,6 +49,8 @@ Your Task
 
 * Do the Ruby on Rails Tutorial Chapter 7, "Sign-Up".
 
+
+---
 
 ### Ruby on Rails Tutorial sample application
 
