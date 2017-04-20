@@ -1,6 +1,6 @@
 Course List >> Ruby on Rails >> Introduction to Rails >> [Project: Let's Get Building](http://www.theodinproject.com/courses/ruby-on-rails/lessons/let-s-get-building)
 
-# Project: Web Refresher
+# 1. Project: Web Refresher
 
 ## Project: Ruby on Rails Tutorial
 
@@ -13,7 +13,7 @@ In this project, you'll dive right into the tutorial by building the site's stat
 ---
 Course List >> Ruby on Rails >> Routes, Views, Controllers and Assets >> [Project: Basic Routes, Views and Controllers](http://www.theodinproject.com/courses/ruby-on-rails/lessons/basic-routes-views-and-controllers)
 
-# Project: Basic Routes, Views and Controllers
+# 2. Project: Basic Routes, Views and Controllers
 
 ## Project: Ruby on Rails Tutorial
 
@@ -27,7 +27,7 @@ Bootstrap will do a lot of the heavy lifting for you -- instead of having to fig
 ---
 Course List >> Ruby on Rails >> Databases and Active Record >> [Project: Building With Active Record](http://www.theodinproject.com/courses/ruby-on-rails/lessons/building-with-active-record)
 
-# Projects: Active Record Basics
+# 3. Projects: Active Record Basics
 
 ## Project 1: Ruby on Rails Tutorial
 
@@ -40,7 +40,7 @@ Your Task
 ---
 Course List >> Ruby on Rails >> Forms and Authentication >> [Projects: Forms](http://www.theodinproject.com/courses/ruby-on-rails/lessons/forms)
 
-# Projects: Forms  
+# 4. Projects: Forms  
 
 ## Project 2: Ruby on Rails Tutorial
 
@@ -49,6 +49,27 @@ Your Task
 
 * Do the Ruby on Rails Tutorial Chapter 7, "Sign-Up".
 
+
+---
+Course List >> Ruby on Rails >> Forms and Authentication >> [Project: Authentication](http://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication)
+
+# 5. Projects: Authentication
+
+In these projects, you'll be working to implement authentication systems so users can only access areas of a site they are authorized to.
+
+## Project 1: Ruby on Rails Tutorial
+
+We're starting to get into the meaty stuff with the tutorial. Take your time and pay attention to which file (especially for the specs) you're supposed to be writing in. A common and frustrating mistake is to put your describe block in the wrong place.
+
+You'll implement signin and signout functionality for the user, which opens the door to allow more destructive user behaviors like editing and deleting things (which should only be allowed for a given user or admin). In Chapter 10, you'll get the chance to implement these functions.
+
+### Your Task
+
+* Do the Ruby on Rails Tutorial Chapter 8, "Basic Login"
+* Do the Ruby on Rails Tutorial Chapter 9, "Advanced Login"
+* Do the Ruby on Rails Tutorial Chapter 10 "Updating, showing, and deleting users"
+* Do the Ruby on Rails Tutorial Chapter 11, "Account Activation"
+* Do the Ruby on Rails Tutorial Chapter 12, "Password Reset"
 
 ---
 
