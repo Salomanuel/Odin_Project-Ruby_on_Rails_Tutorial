@@ -5,13 +5,15 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		@user = users(:michael) # from fixture
 	end
 
-	test "login with VALID information" do
+	test "login with VALID information and logout" do
 		# skip
 		# visit the login path
 		get login_path
 		# post valid information to the sessions path
 		post login_path, params: { session: {  email: @user.email, 
 																				password: 'password' } }
+		# verify that the user is logged in
+		assert is_logged_in?
 		# verify the redirection to the user page
 		assert_redirected_to @user
 		# actually follow that redirection
@@ -24,6 +26,13 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		assert_select "a[href=?]", logout_path
 		# verify that a profile link appears
 		assert_select "a[href=?]", user_path(@user)
+		delete logout_path
+		assert_not is_logged_in?
+		assert_redirected_to root_url
+		follow_redirect!
+		assert_select "a[href=?]", login_path
+		assert_select "a[href=?]", logout_path, 			count: 0
+		assert_select "a[href=?]", user_path(@user), 	count: 0
 	end
 
 	test "login with INVALID information" do
