@@ -6,7 +6,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 	end
 
 	test "login with VALID information" do
-		skip
+		# skip
 		# visit the login path
 		get login_path
 		# post valid information to the sessions path
