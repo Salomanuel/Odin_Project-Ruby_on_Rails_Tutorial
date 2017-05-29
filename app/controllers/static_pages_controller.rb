@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	# @base_title = 
-		@title       = "Home"
+		@title = "Home"
   end
 
   def help
@@ -12,7 +11,7 @@ class StaticPagesController < ApplicationController
   	@title = "About"
   end
 
-  def base_title
-  	@base_title = "| Ruby on Rails Tutorial Sample App"
+  def contact
+  	@title = "Contact"
   end
 end
