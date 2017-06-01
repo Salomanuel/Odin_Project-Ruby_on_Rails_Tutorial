@@ -6,6 +6,6 @@ class UsersController < ApplicationController
   end
 
   def new
-  	# debugger
+		@user = User.new
   end
 end
