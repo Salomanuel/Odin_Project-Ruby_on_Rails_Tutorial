@@ -37,7 +37,8 @@ class UserTest < ActiveSupport::TestCase
 												"USER@foo.COM",
 											 	"A_US-ER@foo.bar.org", 
 											 	"first.last@foo.jp", 
-											 	"alice+bob@baz.cn" ]
+											 	"alice+bob@baz.cn",
+											 	"marco99@example.com" ]
 		valid_addresses.each do |valid_address|
 			@user.email = valid_address
 			assert @user.valid?, "#{valid_address.inspect} should be valid"
