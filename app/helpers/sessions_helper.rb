@@ -2,7 +2,7 @@ module SessionsHelper
 	
 	# logs in the given user
 	def log_in(user)
-		session[:user_id] = user.id
+		session[:user_id] = user.id			# sessions is a temporary cookie
 	end
 
 	# returns the current logged-in user (if any)
@@ -12,12 +12,12 @@ module SessionsHelper
 
 	# returns the user corresponding to the remember token cookie
 	def current_user
-		if 		(user_id = session[:user_id]) # does it exist?
+		if 		(user_id = session[:user_id]) 				# does it exist?
 			@current_user ||= User.find_by(id: user_id)
 		elsif (user_id = cookies.signed[:user_id])  # is there a persisten session?
-			user = User.find_by(id: user_id) 
+			user = User.find_by(id: user_id) 							# .authenticated comes from models/user
 			if user and user.authenticated?(cookies[:remember_token])
-				log_in user
+				log_in user								# from this same file
 				@current_user = user
 			end
 		end
@@ -30,7 +30,7 @@ module SessionsHelper
 
 	# forgets a persistent session
 	def forget(user)
-		user.forget # from models/user.rb
+		user.forget 										# from models/user
 		cookies.delete(:user_id)
 		cookies.delete(:remember_token)
 	end
@@ -44,8 +44,8 @@ module SessionsHelper
 
 	# remembers a user in a persisten session
 	def remember(user)
-		user.remember
+		user.remember										# from models/user
 		cookies.permanent.signed[:user_id] = user.id
 		cookies.permanent[:remember_token] = user.remember_token
-	end
+	end																# from an attr_accessor of models/user
 end
