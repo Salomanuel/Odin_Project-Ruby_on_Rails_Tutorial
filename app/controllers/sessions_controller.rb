@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   def create		# the first if user is just to not make user.authenticate fail
   	user = User.find_by(email: params[:session][:email].downcase)
   	if user and user.authenticate(params[:session][:password])
-			log_in user 	# method in sessions_helper
-			remember user # method in sessions_helper
+			log_in user 	   # methods in sessions_helper
+			params[:session][:remember_me] == '1' ? remember(user) : forget(user)
   		flash[:success] = "logged in"
 			redirect_to user	
   	else
