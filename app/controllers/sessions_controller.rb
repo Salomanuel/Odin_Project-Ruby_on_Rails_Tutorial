@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create
+  def create		# the first if user is just to not make user.authenticate fail
   	user = User.find_by(email: params[:session][:email].downcase)
   	if user and user.authenticate(params[:session][:password])
 			log_in user 	# method in sessions_helper
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	log_out
+  	log_out if logged_in?
   	redirect_to root_path
   end
 end
