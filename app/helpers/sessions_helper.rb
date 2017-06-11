@@ -15,6 +15,7 @@ module SessionsHelper
 		if 		(user_id = session[:user_id]) 				# does it exist?
 			@current_user ||= User.find_by(id: user_id)
 		elsif (user_id = cookies.signed[:user_id])  # is there a persisten session?
+			# raise # the tests still pass, so this branch is currently untested
 			user = User.find_by(id: user_id) 							# .authenticated comes from models/user
 			if user and user.authenticated?(cookies[:remember_token])
 				log_in user								# from this same file
