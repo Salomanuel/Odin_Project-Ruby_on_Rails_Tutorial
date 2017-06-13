@@ -10,6 +10,11 @@ module SessionsHelper
 	# 	@current_user ||= User.find_by(id: session[:user_id])
 	# end
 
+	# returns true if the given user is the current user
+	def current_user?(user)
+		user == current_user
+	end	
+
 	# returns the user corresponding to the remember token cookie
 	def current_user
 		if 		(user_id = session[:user_id]) 				# does it exist?
