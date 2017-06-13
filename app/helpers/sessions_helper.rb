@@ -54,4 +54,15 @@ module SessionsHelper
 		cookies.permanent.signed[:user_id] = user.id
 		cookies.permanent[:remember_token] = user.remember_token
 	end																# from an attr_accessor of models/user
+
+	# redirects to stored location (or the default), after it, it cleans itself
+	def redirect_back_of(default)
+		redirect_to(session[:forwarding_url] or default )
+		session.delete(:forwarding_url)
+	end
+
+	# stores the URL trying to be accessed
+	def store_location											#  but only for a GET request
+		session[:forwarding_url] = request.original_url if request.get?
+	end # puts the requested URL in the session variable under the key :forwarding_url
 end
