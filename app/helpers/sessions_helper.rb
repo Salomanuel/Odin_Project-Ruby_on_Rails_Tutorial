@@ -56,8 +56,8 @@ module SessionsHelper
 	end																# from an attr_accessor of models/user
 
 	# redirects to stored location (or the default), after it, it cleans itself
-	def redirect_back_of(default)
-		redirect_to(session[:forwarding_url] or default )
+	def redirect_back_or(default)
+		redirect_to(session[:forwarding_url] || default )
 		session.delete(:forwarding_url)
 	end
 
