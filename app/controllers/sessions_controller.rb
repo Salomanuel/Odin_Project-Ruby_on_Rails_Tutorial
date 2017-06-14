@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    # debugger
   end
 
   def create		# the first if user is just to not make user.authenticate fail
