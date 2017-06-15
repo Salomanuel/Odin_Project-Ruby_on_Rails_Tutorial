@@ -1,22 +1,22 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
 
 
-  def index
+  def index     # 1
     @users = User.paginate(page: params[:page])
   end
 
-  def show
+  def show      # 2
   	@user = User.find(params[:id])
   	# debugger
   end
 
-  def new
+  def new       # 3
 		@user = User.new
   end
 
-  def create
+  def create    # 4
   	@user = User.new(user_params)
   	if @user.save
   		log_in @user
@@ -27,16 +27,22 @@ class UsersController < ApplicationController
   	end
   end
 
-  def edit
+  def edit      # 5
   end
 
-  def update
+  def update    # 6
     if @user.update_attributes(user_params)
       flash[:success] = "User successfully updated"
       redirect_to @user
     else
       render 'edit'
     end
+  end
+
+  def destroy  # 7  # add the corresponding before_action as well
+    User.find(params[:id]).destroy  # #destroy from Active record
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
 
   private
