@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-
+  before_action :admin_user,     only: :destroy
 
   def index     # 1
     @users = User.paginate(page: params[:page])
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy  # 7  # add the corresponding before_action as well
+  def destroy  # 7  # add the corresponding before_actionS as well
     User.find(params[:id]).destroy  # #destroy from Active record
     flash[:success] = "User deleted"
     redirect_to users_url
@@ -71,4 +71,8 @@ class UsersController < ApplicationController
     end
       # current_user in session_helper, returns the user corresponding to the remember token cookie
 
+    # confirms an admin user
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end
