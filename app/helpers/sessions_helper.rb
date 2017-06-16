@@ -10,6 +10,11 @@ module SessionsHelper
 	# 	@current_user ||= User.find_by(id: session[:user_id])
 	# end
 
+	# returns true if the given user is the current user
+	def current_user?(user)
+		user == current_user
+	end	
+
 	# returns the user corresponding to the remember token cookie
 	def current_user
 		if 		(user_id = session[:user_id]) 				# does it exist?
@@ -49,4 +54,15 @@ module SessionsHelper
 		cookies.permanent.signed[:user_id] = user.id
 		cookies.permanent[:remember_token] = user.remember_token
 	end																# from an attr_accessor of models/user
+
+	# redirects to stored location (or the default), after it, it cleans itself
+	def redirect_back_or(default)
+		redirect_to(session[:forwarding_url] || default )
+		session.delete(:forwarding_url)
+	end
+
+	# stores the URL trying to be accessed
+	def store_location											#  but only for a GET request
+		session[:forwarding_url] = request.original_url if request.get?
+	end # puts the requested URL in the session variable under the key :forwarding_url
 end
