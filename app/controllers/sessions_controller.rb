@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     # debugger
   end
 
-  def create		# the first if user is just to not make user.authenticate fail
+  def create		# the first 'if user' is just to not make user.authenticate fail
   	@user = User.find_by(email: params[:session][:email].downcase)
   	if @user and @user.authenticate(params[:session][:password])
 			log_in @user 	   # methods in sessions_helper
