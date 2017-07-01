@@ -13,7 +13,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		name  = ""
 		email = ""
 		patch user_path(@user), params:
-			{user: { name:  name, email: email}}
+			{user: {  name:  name, 
+							 email: email, 
+						password: "foobar", 
+						password_confirmation: "foobar" } }
 		assert_template 'users/edit'
 		assert_select "div.alert", "The form contains 3 errors."
 	  assert_not_equal name,  @user.name
@@ -28,7 +31,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		name  = "Foo Bar"
 		email = "foo@bar.baz"
 		patch user_path(@user), params: 
-			{ user: { name: 	name, email: 	email }}
+			{user: {  name:  name, 
+							 email: email, 
+						password: "foobar", 
+						password_confirmation: "foobar" } }
 		assert_not flash.empty?
 		assert_redirected_to @user
 		@user.reload
