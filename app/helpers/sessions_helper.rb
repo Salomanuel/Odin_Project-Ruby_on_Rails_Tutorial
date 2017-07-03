@@ -22,7 +22,10 @@ module SessionsHelper
 		elsif (user_id = cookies.signed[:user_id])  # is there a persisten session?
 			# raise # the tests still pass, so this branch is currently untested
 			user = User.find_by(id: user_id) 							# .authenticated comes from models/user
-			if user and user.authenticated?(cookies[:remember_token])
+			# if user and user.authenticated?(cookies[:remember_token])
+			# updated this line for the new authenticated method
+			if user && user.authenticated?(:remember, cookies[:remember_token])
+				# 	( def authenticated?(attribute, token) from User model)
 				log_in user								# from this same file
 				@current_user = user
 			end
