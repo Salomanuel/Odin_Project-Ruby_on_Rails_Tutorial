@@ -44,6 +44,22 @@ class User < ApplicationRecord
 		update_attribute(:remember_digest, nil)
 	end
 
+	# activates an account
+	def activate
+		update_columns(activated: true, activated_at: Time.zone.now)
+		# old two lines version:
+		# update_attribute(:activated,		true)
+		# update_attribute(:activated_at, Time.zone.now)
+		# please note how the original one was, it had user
+		# user.update_attribute(:activated,			true)
+	end
+
+	# sends activation email
+	def send_activation_email
+		UserMailer.account_activation(self).deliver_now
+		# the call for self used to be to @user
+	end
+
 	private
 		# creates and assigns the activation token and digest
 		def create_activation_digest

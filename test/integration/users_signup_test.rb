@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersSignupTest < ActionDispatch::IntegrationTest
 
 	def setup
+		# because the DELIVERIES array is global, it has to be reset for the test to work
 		ActionMailer::Base.deliveries.clear
 	end
 	
@@ -30,7 +31,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 									password: 							"foobar",
 									password_confirmation: 	"foobar" } }
 		end
+		# verifies that ONE message was delivered
 		assert_equal 1, ActionMailer::Base.deliveries.size
+		# #assigns grants access to instance variable in the corresponding action
 		user = assigns(:user)
 		assert_not user.activated?
 		# try to log in before activation
