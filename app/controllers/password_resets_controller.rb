@@ -28,10 +28,20 @@ class PasswordResetsController < ApplicationController
   	# 2. failed update for invalid password
   	# 3. failed update for empty password or wrong confirmation)
   	# 4. SUCCESSFUL update
-
+  	if params[:user][:password].empty?					# case 3.
+  		@user.errors.add(:password, "can't be empty")
+  		render 'edit'
+  	elsif @user.update_attributes(user_params) 	# case 4.
+  		log_in @user              # method below
+  		flash[:success] = "Password has been reset."
+  		redirect_to @user
+  	else
+  		render 'edit'															# case 2.
+  	end
   end
 
   private
+
   	def get_user
   		@user = User.find_by(email: params[:email])
   	end
