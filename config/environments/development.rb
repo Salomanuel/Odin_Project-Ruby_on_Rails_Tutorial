@@ -32,7 +32,7 @@ Rails.application.configure do
   
   # the next 3 lines were added by Manuel  
   config.action_mailer.delivery_method        = :test
-  host = 'example.com' # Don't user this literally; user your local dev host instead
+  host = 'localhost:3000' # Don't user this literally; user your local dev host instead
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
   config.action_mailer.perform_caching = false
