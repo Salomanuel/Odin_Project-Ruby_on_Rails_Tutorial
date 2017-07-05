@@ -41,12 +41,17 @@ class PasswordResetsController < ApplicationController
   end
 
   private
+		def user_params
+  		params.require(:user).permit(:password, :password_confirmation)
+  	end
+
+  	# Before filters
 
   	def get_user
   		@user = User.find_by(email: params[:email])
   	end
 
-  	#confirms a valid user
+  	# confirms a valid user
   	def valid_user 
   		unless (@user && @user.activated? && # ::authenticated from User model
   						@user.authenticated?(:reset, params[:id]))
@@ -54,8 +59,9 @@ class PasswordResetsController < ApplicationController
   		end
   	end
 
+  	# checks expiration of reset token
   	def check_expiration
-  		if @user.password_reset_expired?
+  		if @user.password_reset_expired? # in the User model
   			flash[:danger] = "Password reset has expired."
   			redirect_to new_password_reset_url
   		end
