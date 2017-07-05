@@ -26,6 +26,7 @@ module SessionsHelper
 			# updated this line for the new authenticated method
 			if user && user.authenticated?(:remember, cookies[:remember_token])
 				# 	( def authenticated?(attribute, token) from User model)
+				#            so it will be remember_digest
 				log_in user								# from this same file
 				@current_user = user
 			end

@@ -3,6 +3,7 @@ class AccountActivationsController < ApplicationController
 	def edit
 		user = User.find_by(email: params[:email])
 		if user && !user.activated? && user.authenticated?(:activation, params[:id])
+			#                   from User model, so it will be activation_token
 			user.activate # in the User model
 			# obsolete because of the above call
 			# user.update_attribute(:activated,			true)
