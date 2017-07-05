@@ -1,6 +1,7 @@
 class PasswordResetsController < ApplicationController
 	before_action :get_user,		only: [:edit, :update]
 	before_action :valid_user,	only: [:edit, :update]
+	before_action :check_expiration, only: [:edit, :update] # see #update
   def new
   end
 
@@ -19,6 +20,15 @@ class PasswordResetsController < ApplicationController
 
   def edit
   	@user = User.find_by(email:params[:email].downcase)
+  end
+
+  def update
+  	# four cases:
+  	# 1. expired password reset # dealt with a before filter at the top
+  	# 2. failed update for invalid password
+  	# 3. failed update for empty password or wrong confirmation)
+  	# 4. SUCCESSFUL update
+
   end
 
   private
