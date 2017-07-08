@@ -42,7 +42,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		# assert_equal cookies['remember_token'], assigns(:user).remember_token
 		# this test users assigns, which is complicated and requires the @user variable
 		# instead of the normally used user. See more in listing 9.27 
-    # assert_not_empty cookies['remember_token']
+    assert_not_empty cookies['remember_token']
 	end
 
 	test "login without remembering" do
