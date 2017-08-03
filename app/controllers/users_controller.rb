@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     # skip page if user is not activated
     redirect_to root_url and return unless @user.activated
-  	# debugger
+  	@microposts = @user.microposts.paginate(page: params[:page])
+    # debugger
   end
 
   def new       # 3
