@@ -4,14 +4,14 @@ class MicropostTest < ActiveSupport::TestCase
 	def setup
 		@user = users(:michael)
 		# this code is WRONG
-		@micropost = Micropost.new(content: "Lorem ipsum", user_id: @user.id)
+		@micropost = @user.microposts.build(content: "Lorem ipsum")
 	end
 
 	test "should be valid" do
 		assert @micropost.valid?
 	end
 
-	test "user id should be present" do
+	test "user it should be present" do
 		@micropost.user_id = nil
 		assert_not @micropost.valid?
 	end
@@ -21,7 +21,7 @@ class MicropostTest < ActiveSupport::TestCase
 		assert_not @micropost.valid?
 	end
 
-	test "content should not betoo long" do
+	test "content should not be too long" do
 		@micropost.content = "a" * 141
 		assert_not @micropost.valid?
 	end
