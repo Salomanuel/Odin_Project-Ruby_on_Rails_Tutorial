@@ -17,9 +17,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 		assert_select 'div.pagination'
 			replacements =[ ["&amp;", "&"],["&#39;", "'"]]
 		@user.microposts.paginate(page: 1).each do |micropost|
-			response_body = response.body
-			replacements.each { |repl| response_body.gsub!(repl[0], repl[1])}
-			assert_match micropost.content, response_body
+			assert_match micropost.content, response.body
 		end
 	end
 end
