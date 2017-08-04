@@ -63,15 +63,14 @@ class UsersController < ApplicationController
   	
     # before filters
 
-    # confirms a logged-in user
-      # used in the filter before_action
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in"
-        redirect_to login_url
-      end
-    end
+    # #logged_in_user has been moved to the application_controller
+    # def logged_in_user
+    #   unless logged_in?
+    #     store_location
+    #     flash[:danger] = "Please log in"
+    #     redirect_to login_url
+    #   end
+    # end
 
     #confirms the correct user
     def correct_user
