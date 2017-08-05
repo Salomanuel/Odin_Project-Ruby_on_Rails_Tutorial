@@ -7,19 +7,22 @@ end
 
 
 gem 'rails',            '5.0.1'
-gem 'bcrypt',           '3.1.11'
-gem 'faker',            '1.7.3'
-gem 'will_paginate',    '3.1.5'
+gem 'bcrypt',           '3.1.11'  # for has_secure
+gem 'faker',            '1.7.3'   # Hipster generator
+gem 'will_paginate',    '3.1.5'   # for paginating
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass',   '3.3.6'
-gem 'puma',             '3.0'
-gem 'sass-rails',       '5.0.6'
-gem 'uglifier',         '3.0.0'
-gem 'coffee-rails',     '4.2.1'
-gem 'jquery-rails',     '4.1.1'
+gem 'puma',             '3.0'     # for the server
+gem 'sass-rails',       '5.0.6'   # css enhanced
+gem 'uglifier',         '3.0.0'     # JS parser
+gem 'coffee-rails',     '4.2.1'     # Coffee Script (enhanced JS)
+gem 'jquery-rails',     '4.1.1'     # JQuery
 gem 'turbolinks',       '5.0.1'
 gem 'jbuilder',         '2.4.1'
 gem 'pg' # for the damn heroku
+gem 'carrierwave',      '1.1.0' # image uploader
+gem 'mini_magick',      '4.7.0' # image resizing
+gem 'fog',              '1.40.0'# image upload in production
 
 group :development, :test do
   gem 'sqlite3',        '1.3.12'
