@@ -98,7 +98,6 @@ class User < ApplicationRecord
 		reset_sent_at < 2.hours.ago # date helpers
 	end
 
-	# defines a PROTOFEED
 	# see "Following users" for the full implementation
 	def feed
 		following_ids = "SELECT followed_id FROM relationships
