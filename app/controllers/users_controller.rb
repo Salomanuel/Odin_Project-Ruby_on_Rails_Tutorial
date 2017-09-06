@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+                                        :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -13,7 +14,8 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     # skip page if user is not activated
     redirect_to root_url and return unless @user.activated
-  	# debugger
+  	@microposts = @user.microposts.paginate(page: params[:page])
+    # debugger
   end
 
   def new       # 3
@@ -53,6 +55,20 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'    # because it shares the view with #followers  
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
   private
   	def user_params
   		params.require(:user).permit(	
@@ -62,15 +78,14 @@ class UsersController < ApplicationController
   	
     # before filters
 
-    # confirms a logged-in user
-      # used in the filter before_action
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in"
-        redirect_to login_url
-      end
-    end
+    # #logged_in_user has been moved to the application_controller
+    # def logged_in_user
+    #   unless logged_in?
+    #     store_location
+    #     flash[:danger] = "Please log in"
+    #     redirect_to login_url
+    #   end
+    # end
 
     #confirms the correct user
     def correct_user

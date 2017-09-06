@@ -22,3 +22,6 @@
 
 # Ignore Spring files for Guard testing
 /spring/*.pid
+
+# ignore uploaded test images
+/public/uploads
