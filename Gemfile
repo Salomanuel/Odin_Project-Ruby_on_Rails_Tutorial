@@ -12,7 +12,7 @@ gem 'faker',            '1.7.3'   # Hipster generator
 gem 'will_paginate',    '3.1.5'   # for paginating
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass',   '3.3.6'
-gem 'puma',             '3.0'     # for the server
+gem 'puma',             '3.11.2'     # for the server, was '3.0'
 gem 'sass-rails',       '5.0.6'   # css enhanced
 gem 'uglifier',         '3.0.0'     # JS parser
 gem 'coffee-rails',     '4.2.1'     # Coffee Script (enhanced JS)
