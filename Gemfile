@@ -25,7 +25,7 @@ gem 'mini_magick',      '4.7.0' # image resizing
 gem 'fog',              '1.40.0'# image upload in production
 
 group :development, :test do
-  gem 'sqlite3',        '1.3.12'
+  # gem 'sqlite3',        '1.3.12'
   gem 'byebug',         '9.0.0', platform: :mri
 end
 
