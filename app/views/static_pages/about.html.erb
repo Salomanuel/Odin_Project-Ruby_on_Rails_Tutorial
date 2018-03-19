@@ -2,10 +2,44 @@
 <h1>About</h1>
 
 <p>
-	The 
-	<a href="http://www.railstutorial.org/"><em>Ruby on Rails Tutorial</em></a> is a 
-	<a href="http://screencasts.railstutorial.org/">screencast series</a>
-	to teach web development with
-	<a href="http://rubyonrails.org/">Ruby on Rails</a>.
-	This is the sample application for the tutorial.
+	This is a professional-grade sample application that deals with <strong>users</strong>, <strong>microposts</strong>, and a <strong>full login and authentication framework</strong>
+	with a CSS framework ass well as some custom styles, all of this developed using <strong>TestDrivenDevelopment</strong>.
+</p>
+
+<h2>Authentication</h2>
+<p>
+	It gives users the ability to sign up and create a user profile page. Once users can sign up, they can log in and log out as well.
+	It protect pages from improper access basically developing a full Rails login and authentication system.
+</p>
+
+<h2>Mailers</h2>
+<p>
+	It provides User model validations to increase the odds of new users having valid email addresses but it makes sure of validating the email by adding a separate account activation step to the user signup.
+	This involves associating an activation token and digest with a user, sending the user an email with a link including the token, and activating the user upon clicking the link.
+	<br>The process used to allow users to reset their passwords if they forget them is also similar.
+</p>
+
+<h2>Cookies</h2>
+<p>
+	At the beginning the application used to maintain the logged-in state until the browser was closed by the user. 
+	The resulting authentication system allows to customize the site and implement an authorization model based on login status and identity of the current user. For example, the site header updates with login/logout links and a profile link.
+	<br>Then, instead of “forgetting” users on browser close, a new more advanced system has been implemented.
+	<br>It works by automatically remembering users, and can optionally remember users based on the value of a “remember me” checkbox.
+	<br>As a result, taken together, those systems cover the most common types of login systems on the Web.
+</p>
+
+<h2>Before Filters</h2>
+<p>
+	There is a security model in which only logged-in users can visit the user index page, only the correct user can access the page for editing their information and only administrative users can delete other users from the database. 
+	<br>Users have the ability to update profiles, but only their own. That also provides a natural opportunity to enforce an authorization model (made possible by the main authentication code already in place).
+</p>
+
+<h2>Other</h2>
+<p>
+	The identity of a logged-in user is used to create microposts associated with that user, and the current user can follow other users of the application (thereby receiving a feed of their microposts).
+
+</p>
+
+<p>
+There is also a listing of all users (also requiring authentication), which uses sample data and pagination. 
 </p>
